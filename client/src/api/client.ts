@@ -323,6 +323,11 @@ class FeedAPI {
   async setTop(id: number, top: number): Promise<ApiResponse<void>> {
     return this.http.post<void>(`/api/feed/top/${id}`, { top });
   }
+
+  // POST /api/feed/ai-generate
+  async aiGenerate(content: string): Promise<ApiResponse<{ title: string; tags: string[]; summary: string }>> {
+    return this.http.post<{ title: string; tags: string[]; summary: string }>("/api/feed/ai-generate", { content });
+  }
 }
 
 /**
